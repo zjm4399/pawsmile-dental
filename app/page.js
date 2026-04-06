@@ -3,6 +3,9 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
+// --- 🐾 萌爪视觉资产 (SVG Data URI) ---
+const PAW_SVG = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiPjxwYXRoIGZpbGw9IiMwMDRENDAiIGQ9Ik0yMjYuNSA5Mi45YzE0LjMgNDIuOS0uMyA4Ni4yLTMyLjYgOTYuOXMtNzAuMy0xNy40LTg0LjYtNjAuM3MuMy04Ni4yIDMyLjYtOTYuOXM3MC4zIDE3LjQgODQuNiA2MC4zem03MC4zIDk2LjljLTMyLjMtMTAuNy00Ni45LTU0LTMyLjYtOTYuOXM1Mi4zLTcxIDg0LjYtNjAuM3M0Ni45IDU0IDMyLjYgOTYuOXMtNTIuMyA3MS04NC42IDYwLjN6TTEwMC40IDMwNC4xYzIzLjctMzUuNSA2MS41LTUyLjggODQuNC0zOC42czIxIDUzLjMtMi43IDg4LjhzLTYxLjUgNTIuOC04NC40IDM4LjZzLTIxLTUzLjMgMi43LTg4Ljh6bTMxMS4yLTM4LjZjMjIuOS0xNC4yIDYwLjcgMy4xIDg0LjQgMzguNnMyNi41IDc0LjYgMi43IDg4LjhzLTYwLjctMy4xLTg0LjQtMzguNnMtMjYuNS03NC42LTIuNy04OC44ek0zMTUuNSAyNDQuNWMyNi4yLTExLjUgMTI2IDQ0LjYgMTExLjggMTI1LjRjLTkuMiA1Mi43LTQ0LjYgMTMwLjEtMTEzLjMgMTQxLjJjLTU3LjQgOS4yLTExMi4xLTQxLjktMTEyLjEtNDEuOXMtNTQuNyA1MS4xLTExMi4xIDQxLjljLTU0LjYtOS4yLTkwLTg2LjYtOTkuMi0xMzkuM2MtMTQuMi04MC44IDg1LjYtMTM2LjkgMTExLjgtMTI1LjRjMjYuMiAxMS41IDQ1LjQgNjMuNSA2Ny44IDYzLjVzNDEuNi01MiA2Ny44LTYzLjV6Ii8+PC9zdmc+";
+
 // --- 🐾 Paw Burst 粒子效果组件 ---
 const PawBurst = ({ active }) => {
   const [particles, setParticles] = useState([]);
@@ -35,7 +38,7 @@ const PawBurst = ({ active }) => {
         {particles.map(p => (
           <motion.img
             key={p.id}
-            src="/cursor.png"
+            src={PAW_SVG}
             initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
             animate={{ opacity: 0.8, scale: p.scale, x: p.x, y: p.y - 60, rotate: p.rotate }}
             exit={{ opacity: 0, scale: 0 }}
@@ -56,10 +59,10 @@ export default function Home() {
     const style = document.createElement('style');
     style.innerHTML = `
       * { 
-        cursor: url("/cursor.png") 16 16, auto !important; 
+        cursor: url("${PAW_SVG}") 16 16, auto !important; 
       }
       a, button, [role="button"], .interactive {
-        cursor: url("/cursor.png") 16 16, pointer !important;
+        cursor: url("${PAW_SVG}") 16 16, pointer !important;
       }
     `;
     document.head.appendChild(style);
@@ -80,10 +83,10 @@ export default function Home() {
   return (
     <div style={{ 
       fontFamily: '"Inter", sans-serif', 
-      background: '#FDFBF7', // 顶级 D2C 奶油底色
+      background: '#FEFAE0', // 顶级 D2C 奶油/燕麦底色 (更温润丰富)
       color: '#004D40', // 深海绿 (专业感)
       margin: 0, padding: 0,
-      cursor: 'url("/cursor.png") 16 16, auto' // 全局小爪子光标
+      cursor: `url("${PAW_SVG}") 16 16, auto` // 全局小爪子光标
     }}>
       
       {/* 玻璃拟态导航栏 */}
