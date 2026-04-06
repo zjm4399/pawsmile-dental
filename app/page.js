@@ -148,7 +148,7 @@ export default function Home() {
             style={{ fontSize: '7rem', fontWeight: 900, lineHeight: 0.85, letterSpacing: '-0.07em', marginBottom: '3rem' }}
           >
             Radiant Smiles<br/>
-            <span style={{ color: '#FF7043' }}>For Happy Tails.</span>
+            <span style={{ color: '#FF7043' }}>& Happy Tails.</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
