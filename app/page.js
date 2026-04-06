@@ -64,7 +64,7 @@ export default function Home() {
       background: '#FDFBF7', // 顶级 D2C 奶油底色
       color: '#004D40', // 深海绿 (专业感)
       margin: 0, padding: 0,
-      cursor: 'url("https://sc02.alicdn.com/kf/A72a6f276c1ab483892eaa4e1861cd32cT.png") 16 16, auto' // 全局小爪子光标
+      cursor: 'url("https://sc02.alicdn.com/kf/A72a6f276c1ab483892eaa4e1861cd32cT.png") 16 16, pointer' // 全局小爪子光标
     }}>
       
       {/* 玻璃拟态导航栏 */}
