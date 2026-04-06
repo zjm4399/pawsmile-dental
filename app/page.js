@@ -35,7 +35,7 @@ const PawBurst = ({ active }) => {
         {particles.map(p => (
           <motion.img
             key={p.id}
-            src="https://sc02.alicdn.com/kf/A72a6f276c1ab483892eaa4e1861cd32cT.png"
+            src="/cursor.png"
             initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
             animate={{ opacity: 0.8, scale: p.scale, x: p.x, y: p.y - 60, rotate: p.rotate }}
             exit={{ opacity: 0, scale: 0 }}
@@ -51,6 +51,25 @@ const PawBurst = ({ active }) => {
 export default function Home() {
   const [hoveredEl, setHoveredEl] = useState(null);
 
+  useEffect(() => {
+    // 全局注入小爪子光标样式
+    const style = document.createElement('style');
+    style.innerHTML = `
+      * { 
+        cursor: url("/cursor.png") 16 16, auto !important; 
+      }
+      a, button, [role="button"], .interactive {
+        cursor: url("/cursor.png") 16 16, pointer !important;
+      }
+    `;
+    document.head.appendChild(style);
+    return () => {
+      if (document.head.contains(style)) {
+        document.head.removeChild(style);
+      }
+    };
+  }, []);
+
   const fadeInUp = {
     initial: { opacity: 0, y: 40 },
     whileInView: { opacity: 1, y: 0 },
@@ -64,7 +83,7 @@ export default function Home() {
       background: '#FDFBF7', // 顶级 D2C 奶油底色
       color: '#004D40', // 深海绿 (专业感)
       margin: 0, padding: 0,
-      cursor: 'url("https://sc02.alicdn.com/kf/A72a6f276c1ab483892eaa4e1861cd32cT.png") 16 16, pointer' // 全局小爪子光标
+      cursor: 'url("/cursor.png") 16 16, auto' // 全局小爪子光标
     }}>
       
       {/* 玻璃拟态导航栏 */}
