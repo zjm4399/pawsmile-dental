@@ -199,7 +199,7 @@ export default function Home() {
           { v: '30D', l: 'Risk-Free Trial' },
           { v: 'USA', l: 'Quality Made' }
         ].map((s, i) => (
-          <motion.div key={i} variants={fadeInUp} style={{ textAlign: 'center' }}>
+          <motion.div key={i} style={{ textAlign: 'center' }}>
             <div style={{ fontSize: '3.5rem', fontWeight: 900, color: '#004D40', letterSpacing: '-0.05em' }}>{s.v}</div>
             <div style={{ color: '#FF7043', fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{s.l}</div>
           </motion.div>
